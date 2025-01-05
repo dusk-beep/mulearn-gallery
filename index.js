@@ -29,15 +29,30 @@ function fadeIn(image, i) {
   image.style.animationDelay = 0.2 * i + 's';
 }
 
+// ctr.addEventListener('scroll', () => {
+//   const containerHeight = ctr.scrollHeight;
+//   const scrollPos = ctr.scrollTop + ctr.clientHeight;
+//
+//   if (
+//     scrollPos >= containerHeight - containerHeight * (20 / 100) &&
+//     !isFetching
+//   ) {
+//     console.log('Reached bottom, fetching images...');
+//     fetchImages();
+//   }
+// });
+//
 window.addEventListener('scroll', () => {
-  const containerHeight = ctr.scrollHeight;
-  const scrollPos = ctr.scrollTop + ctr.clientHeight;
+  const scrollTop = ctr.scrollTop; // Vertical scroll position
+  const scrollHeight = ctr.scrollHeight; // Total content height
+  const clientHeight = ctr.clientHeight; // Visible height of the container
 
+  // Trigger fetch when near the bottom of the container
   if (
-    scrollPos >= containerHeight - containerHeight * (20 / 100) &&
+    scrollTop + clientHeight >= scrollHeight - scrollHeight * (20 / 100) &&
     !isFetching
   ) {
-    console.log('Reached bottom, fetching images...');
+    console.log('Fetching more images...');
     fetchImages();
   }
 });

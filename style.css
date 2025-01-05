@@ -8,7 +8,7 @@ img {
   animation-name: fade;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-  width: auto;
+  width: 185px;
 }
 
 @keyframes fade {
@@ -17,11 +17,18 @@ img {
   }
 }
 
-div {
+.ctr {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-rows: auto;
+  overflow: visible;
+}
+
+@media (min-width: 768px) {
+  div {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 h1 {
