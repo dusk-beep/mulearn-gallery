@@ -10,7 +10,7 @@ async function fetchImages() {
   try {
     isFetching = true;
     msg.style.display = 'none';
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < 30; i++) {
       const response = await fetch(`https://picsum.photos/200/300?random=${i}`);
       const img = document.createElement('img');
       img.src = response.url;
@@ -45,6 +45,8 @@ window.addEventListener('scroll', () => {
   const scrollTop = ctr.scrollTop;
   const scrollHeight = ctr.scrollHeight;
   const clientHeight = ctr.clientHeight;
+
+  console.log(scrollHeight, scrollTop, clientHeight);
 
   if (
     scrollTop + clientHeight >= scrollHeight - scrollHeight * (20 / 100) &&

@@ -21,12 +21,12 @@ img {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
+  grid-template-rows: 1fr;
   overflow: visible;
 }
 
 @media (min-width: 768px) {
-  div {
+  .ctr {
     grid-template-columns: repeat(4, 1fr);
   }
 }
