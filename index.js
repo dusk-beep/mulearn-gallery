@@ -14,7 +14,6 @@ async function fetchImages() {
       const response = await fetch(`https://picsum.photos/200/300?random=${i}`);
       const img = document.createElement('img');
       img.src = response.url;
-      // img.style.width = '185px';
       ctr.appendChild(img);
       fadeIn(img, i);
     }
@@ -29,25 +28,24 @@ function fadeIn(image, i) {
   image.style.animationDelay = 0.2 * i + 's';
 }
 
-// ctr.addEventListener('scroll', () => {
-//   const containerHeight = ctr.scrollHeight;
-//   const scrollPos = ctr.scrollTop + ctr.clientHeight;
+// ctr.addeventlistener('scroll', () => {
+//   const containerheight = ctr.scrollheight;
+//   const scrollpos = ctr.scrolltop + ctr.clientheight;
 //
 //   if (
-//     scrollPos >= containerHeight - containerHeight * (20 / 100) &&
-//     !isFetching
+//     scrollpos >= containerheight - containerheight * (20 / 100) &&
+//     !isfetching
 //   ) {
-//     console.log('Reached bottom, fetching images...');
-//     fetchImages();
+//     console.log('reached bottom, fetching images...');
+//     fetchimages();
 //   }
 // });
 //
 window.addEventListener('scroll', () => {
-  const scrollTop = ctr.scrollTop; // Vertical scroll position
-  const scrollHeight = ctr.scrollHeight; // Total content height
-  const clientHeight = ctr.clientHeight; // Visible height of the container
+  const scrollTop = ctr.scrollTop;
+  const scrollHeight = ctr.scrollHeight;
+  const clientHeight = ctr.clientHeight;
 
-  // Trigger fetch when near the bottom of the container
   if (
     scrollTop + clientHeight >= scrollHeight - scrollHeight * (20 / 100) &&
     !isFetching
